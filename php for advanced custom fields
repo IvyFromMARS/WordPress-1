@@ -1,0 +1,20 @@
+<div class="grid_12" id="head">
+     <div class="titles">
+          <h1><?php the_field('title'); ?></h1>
+          <p><?php the_field('subtitle'); ?></p>
+     </div>
+     <?php $image = wp_get_attachment_image_src(get_field('image'), 'full'); ?>
+     <img src="<?php echo $image[0]; ?>" alt="<?php get_the_title(get_field('image')) ?>" />      
+</div>
+
+
+
+<div class="grid_8" id="head">
+  <?php 
+            $image = wp_get_attachment_image_src(get_field('image'), 'full'); 
+            if ($image == '')
+            { ?>			
+	    <?php } else { ?>
+	    <img src="<?php echo $image[0]; ?>" alt="<?php get_the_title(get_field('image')) ?>" />
+	 <?php } ?>
+</div>
