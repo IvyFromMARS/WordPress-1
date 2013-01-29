@@ -1,0 +1,5 @@
+<?php
+{ $subtitle = get_post_meta
+($post->ID, 'subtitle', $single = true); 
+
+if($subtitle !== '') echo $subtitle;} ?>
