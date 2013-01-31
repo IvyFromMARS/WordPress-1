@@ -1,0 +1,28 @@
+register_post_type('services', array(
+'label' => 'Services',
+'public' => true,
+'show_ui' => true,
+'capability_type' => 'post',
+'hierarchical' => true,
+'rewrite' => array('slug' => 'services'),
+'query_var' => true,
+'supports' => array('title', 'editor', 'excerpt', 'thumbnail')
+) );
+
+add_theme_support('post-thumbnails', array( 'post', 'page', services ) );
+
+
+
+
+
+<div id="services">
+          <?php query_posts('post_type=services'); ?>
+          <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+               <div class="grid_3" id="post-<?php the_ID(); ?>">
+                    <a class="post-thumbnail" href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
+                    <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                    <?php the_excerpt(); ?>
+                    <a class="read-more" href="<?php the_permalink(); ?>">Read More &rsaquo;</a>
+               </div>
+          <?php endwhile; endif; wp_reset_query(); ?>
+     </div>
