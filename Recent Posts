@@ -1,0 +1,14 @@
+<ul>
+  <li class="aj-button"><a class="aj-collapse" rel="acc-posts">Recent Articles</a></li>
+	<li class="aj-hidden" id="acc-posts">
+		<ul>
+			<?php
+				$args = array( 'numberposts' => '5' );
+                $recent_posts = wp_get_recent_posts( $args );
+                foreach( $recent_posts as $recent ){
+                	echo '<li><a href="' . get_permalink($recent["ID"]) . '" title="Look '.esc_attr($recent["post_title"]).'" >' .   $recent["post_title"].'</a> </li> ';
+                }
+             ?>
+		</ul>
+	</li>   
+</ul>
