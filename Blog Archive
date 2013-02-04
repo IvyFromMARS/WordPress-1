@@ -1,0 +1,8 @@
+<ul>
+  <li class="aj-button"><a class="aj-collapse" rel="acc-archive">Blog Archive</a></li>
+	<li class="aj-hidden" id="acc-archive">
+		<ul>
+			<?php wp_get_archives('type=monthly&show_post_count=1'); ?>
+		</ul>
+	</li>   
+</ul>  
