@@ -1,0 +1,31 @@
+<?php /* Template Name: Right Sidebar with Banner */  ?>
+<?php get_header(); ?>
+
+<div class="grid_8" id="content">
+  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+   		<div class="grid_8" id="content">
+   			<div id="banner">
+				<h1><?php the_title(); ?></h1>
+				<p><?php the_field('subheading'); ?></p> 
+				<?php 
+					$image = wp_get_attachment_image_src(get_field('image'), 'full'); 
+					if ($image == '')
+				{ ?>			
+				<?php } else { ?>
+					<img src="<?php echo $image[0]; ?>" alt="<?php get_the_title(get_field('image')) ?>" />
+				<?php } ?>   
+			</div>
+      		<?php the_content(); ?>	
+   		</div>   
+	<?php endwhile; endif; ?>
+</div>
+
+<div class="grid_4" id="left-sidebar">
+	<ul>
+		<?php
+			if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('left-sidebar') ) :
+		endif; ?>
+	</ul>
+</div>
+
+<?php get_footer(); ?>
