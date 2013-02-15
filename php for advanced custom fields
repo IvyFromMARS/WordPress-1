@@ -18,3 +18,10 @@
 	    <img src="<?php echo $image[0]; ?>" alt="<?php get_the_title(get_field('image')) ?>" />
 	 <?php } ?>
 </div>
+
+
+// s proverkoj, zaponeno li pole
+
+<?php if(get_field('subtitle' ) != ""): ?>
+    <p><?php the_field('subtitle'); ?></p>
+<?php endif; ?>
