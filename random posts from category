@@ -1,0 +1,17 @@
+<?php 
+      if ( in_category(3)) { ?>
+         <section id="related-posts">
+            <h2>Related News</h2>
+            <?php query_posts ('cat=3,9&showposts=3&orderby=rand()');
+            if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+<div <?php post_class('p_singe'); ?> >
+            <h1><?php the_title(); ?></h1>
+            <div class="meta">
+               <?php the_time('F jS, Y') ?>
+            </div>
+            <?php the_content(''); ?>
+         </div>
+<?php
+endwhile;
+endif; 
+?>
