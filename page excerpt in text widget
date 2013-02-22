@@ -1,0 +1,29 @@
+// PHP in text widget
+<?php
+  $args=array(
+	'post_type' =>'page',
+	'post__in' => array(279),
+	);
+	$page_query = new WP_Query($args); ?>
+
+	<?php while ($page_query->have_posts()) : $page_query->the_post(); ?>
+			<?php the_excerpt(); ?>
+			<a class="read-more" href="<?php the_permalink(); ?>">Read More &rsaquo;</a>
+	<?php endwhile; ?>
+
+
+// add page excerpt
+add_post_type_support( 'page', 'excerpt' );
+
+
+// functions.php - execute PHP in text widgets
+add_filter('widget_text','execute_php',100);
+function execute_php($html){
+     if(strpos($html,"<"."?php")!==false){
+          ob_start();
+          eval("?".">".$html);
+          $html=ob_get_contents();
+          ob_end_clean();
+     }
+     return $html;
+}
