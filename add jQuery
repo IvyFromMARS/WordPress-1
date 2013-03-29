@@ -9,7 +9,7 @@ add_action('wp_enqueue_scripts', 'add_jquery');
 function add_my_scripts() {
  
   // Enqueue the modernizr script file and specify that it should be placed in the <head>
-  wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.js', array(), '2.5.2', false );
+  wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.js', array(), '2.6.2', false );
  
 }
  
