@@ -25,3 +25,20 @@
 <?php if(get_field('subtitle' ) != ""): ?>
     <p><?php the_field('subtitle'); ?></p>
 <?php endif; ?>
+
+
+
+
+
+
+
+<?php
+
+if ( get_field('portfolio_post_title' ) != "" ) {    
+    the_field('portfolio_post_title');
+
+} else { 
+    the_title();
+}	
+
+?>
